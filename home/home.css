@@ -21,7 +21,7 @@
     justify-content: center;
 }
 #circle{
-    background-color: white;
+    background-color: purple;
     height: 30vh;
     width: 30vh;
     border-radius: 50%;
@@ -31,7 +31,7 @@
 }
 h1{
     animation: fade 2s ease-in;
-    color: purple;
+    color: white;
     font-size: 10vh;    
     margin: auto;
     text-align: center;
