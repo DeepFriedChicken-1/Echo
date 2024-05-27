@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Home</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #121212;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+        }
+        .button {
+            width: 80%;
+            max-width: 300px;
+            padding: 15px;
+            margin: 10px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .button:active {
+            transform: scale(0.98);
+        }
+        .button.inspiration {
+            background-color: palevioletred;
+            color: #fff;
+        }
+        .button.inspiration:hover {
+            background-color: #d45d79;
+        }
+        .button.chat {
+            background-color: #6200ea;
+            color: #fff;
+        }
+        .button.chat:hover {
+            background-color: #3700b3;
+        }
+    </style>
+</head>
+<body>
+    <button class="button inspiration">Inspiration</button>
+    <button class="button chat">Chat</button>
+</body>
+<script>
+    const inspirationButton = document.querySelector('.inspiration');
+    const chatButton = document.querySelector('.chat');
+    inspirationButton.addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
+    chatButton.addEventListener('click', () => {
+        window.location.href = './chat/chat.html';
+    });
+</script>
+</html>
