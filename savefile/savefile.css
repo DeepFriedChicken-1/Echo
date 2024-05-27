@@ -15,19 +15,23 @@ body, html{
     overflow-x: scroll;
 }
 #sprawl div{
+    background-color: black;
+    color: white;
     width: 100vw;
     padding: 20px;
     border-radius: 10%;
-    background-color: white;
     margin: 20px 0;
 }
 #clear{
+    background-color: black;
+    color: white;
     width: 100vw;
     height: 10vh;
     text-align: center;
 }
 #back{
-    background-color: white;
+    background-color: black;
+    color: white;
     width: 100vw;
     height: 5vh;
 }

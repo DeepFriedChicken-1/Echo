@@ -8,6 +8,7 @@ body, html{
     height: 100%;
 }
 #background{
+    background-color: black;
     padding-top: 30%;
     width: 100vw;
     height: 70vh;
@@ -18,15 +19,18 @@ body, html{
     text-align: center;
 }
 aside{
+    background-color: black;
     width: 100vw;
     height: 30vh;
 }
 #toprow{
+    background-color: black;
     display: flex;
     flex-direction: row;
     align-content: space-between;
 }
 .halfbutton{
+    background-color: black;
     width: 50vw;
     height: 15vh;
     border: 1px solid palevioletred;
@@ -36,6 +40,7 @@ aside{
     font-weight: 600;
 }
 #savefile{
+    background-color: black;
     color: palevioletred;
     font-size: 30px;
     font-weight: 600;
