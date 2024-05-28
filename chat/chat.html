@@ -1,97 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat App</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        #chat {
-            width: 90%;
-            max-width: 600px;
-            background-color: #1e1e1e;
-            border: 1px solid #888888;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        #messages {
-            flex: 1;
-            list-style: none;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        #messages li {
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-        .message-sender {
-            background-color: #6200ea;
-            color: white;
-            text-align: left;
-        }
-        .message-receiver {
-            background-color: #888888;
-            color: black;
-            text-align: right;
-        }
-        #inputArea {
-            display: flex;
-            padding: 10px;
-            border-top: 1px solid #888888;
-            background-color: #333333;
-        }
-        #messageInput {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            margin-right: 10px;
-            background-color: #1e1e1e;
-            color: #ffffff;
-        }
-        #messageInput:focus {
-            outline: none;
-        }
-        #sendButton {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #6200ea;
-            color: #ffffff;
-            cursor: pointer;
-        }
-        #sendButton:hover {
-            background-color: #3700b3;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #121212;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      #chat {
+        width: 90%;
+        max-width: 600px;
+        background-color: #1e1e1e;
+        border: 1px solid #888888;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      #messages {
+        flex: 1;
+        list-style: none;
+        padding: 20px;
+        overflow-y: auto;
+      }
+      #messages li {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+      .message-sender {
+        background-color: #6200ea;
+        color: white;
+        text-align: left;
+      }
+      .message-receiver {
+        background-color: #888888;
+        color: black;
+        text-align: right;
+      }
+      #inputArea {
+        display: flex;
+        padding: 10px;
+        border-top: 1px solid #888888;
+        background-color: #333333;
+      }
+      #messageInput {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+        background-color: #1e1e1e;
+        color: #ffffff;
+      }
+      #messageInput:focus {
+        outline: none;
+      }
+      #sendButton {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #6200ea;
+        color: #ffffff;
+        cursor: pointer;
+      }
+      #sendButton:hover {
+        background-color: #3700b3;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="chat">
-        <ul id="messages"></ul>
-        <div id="inputArea">
-            <input id="messageInput" type="text" placeholder="Type a message...">
-            <button id="sendButton" onclick="sendMessage()">Send</button>
-        </div>
+      <ul id="messages"></ul>
+      <div id="inputArea">
+        <textarea id="messageInput" type="text" placeholder="Type a message..."></textarea>
+        <button id="sendButton" onclick="sendMessage()">Send</button>
+      </div>
     </div>
     <script src="renderer.js"></script>
-    <script>
-    window.addEventListener("popstate", function (event) {
-        window.location.href = "../chooses.html";
-      });
+    <script type="module">
+      import sendMessage from "./sendMessage.js";
+      import getMessages from "./readMessages.js";
+
+      const messagesDiv = document.getElementById("messages");
+      const messageInput = document.getElementById("messageInput");
+
+      const renderMessages = (messages) => {
+        messagesDiv.innerHTML = "";
+        messages.forEach((msg) => {
+          const msgDiv = document.createElement("div");
+          msgDiv.classList.add("message");
+          msgDiv.textContent = `${msg.sender}: ${msg.message}`;
+          messagesDiv.appendChild(msgDiv);
+        });
+      };
+
+      const handleSendMessage = () => {
+        const message = messageInput.value;
+        sendMessage("Sope", "Ayo", message);
+        messageInput.value = "";
+      };
+
+      document
+        .querySelector("button")
+        .addEventListener("click", handleSendMessage);
+
+      getMessages(renderMessages);
     </script>
-</body>
+  </body>
 </html>

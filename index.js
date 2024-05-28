@@ -1,34 +1,21 @@
-const { app, BrowserWindow } = require('electron');
-const path = require('path');
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Function to create the main application window
-function createWindow() {
-    const mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
-        webPreferences: {
-            preload: path.join(__dirname, 'preload.js')
-        }
-    });
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDcYlqDcUnOVD4RUAvBZFnnQ3u-EiHLIyE",
+  authDomain: "chatapp-4e313.firebaseapp.com",
+  projectId: "chatapp-4e313",
+  storageBucket: "chatapp-4e313.appspot.com",
+  messagingSenderId: "301353370002",
+  appId: "1:301353370002:web:15e9c5a812f028be44414b",
+  measurementId: "G-Z9K58VT31S"
+};
 
-    // Load the HTML file of your Electron application
-    mainWindow.loadFile('./home/home.html');
-
-}
-
-// Event listener: when Electron has finished initializing
-app.on('ready', createWindow);
-
-// Quit when all windows are closed, except on macOS
-app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
-});
-
-// On macOS, recreate the window when the dock icon is clicked and there are no other windows open
-app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-        createWindow();
-    }
-});
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
