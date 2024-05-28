@@ -1,18 +1,19 @@
 {
-  "name": "inspiration",
+  "name": "Echo",
   "version": "1.0.0",
   "description": "Description of your app",
   "main": "index.js",
   "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build"
   },
   "keywords": [],
-  "author": "Your Name",
+  "author": "CybernetixYT",
   "license": "ISC",
   "devDependencies": {
     "electron": "^29.1.4",
-    "electron-builder": "^24.13.3"
+    "electron-builder": "^24.13.3",
+    "vite": "^2.0.0"
   },
   "build": {
     "appId": "com.example.inspiration",
@@ -44,5 +45,9 @@
     "android": {
       "target": "apk"
     }
+  },
+  "dependencies": {
+    "firebase": "^10.12.2",
+    "vite": "^5.2.11"
   }
 }
