@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
     div.addEventListener("click", function(){
         localStorage.setItem("clickedAuthor", item.author);
         localStorage.setItem("clickedQuote", item.quote);
-        window.location.href = '../index.html';
+        window.location.href = '../inspire.html';
     })
     });
     clear.addEventListener("click", function(){
